@@ -40,7 +40,6 @@ def train(train_dir, model_save_path=None, n_neighbors=None, knn_algo='ball_tree
             image = face_recognition.load_image_file(img_path)
             face_bounding_boxes = face_recognition.face_locations(image)
             if len(face_bounding_boxes) != 1:
-                # If there are no people (or too many people) in a training image, skip the image.
                 if verbose:
                     print("Image {} not suitable for training: {}".format(img_path, "Didn't find a face" if len(face_bounding_boxes) < 1 else "Found more than one face"))
             else:
